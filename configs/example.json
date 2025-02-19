@@ -1,0 +1,20 @@
+{
+  "formula": "-a + 2/3*(b - c) /2 - c",
+  "models": [
+    {
+      "path": "openlm-research/open_llama_3b_v2",
+      "operand_id": "a",
+      "weight": 1.0
+    },
+    {
+      "path": "openlm-research/open_llama_3b_v2",
+      "operand_id": "b",
+      "weight": 5.0
+    },
+    {
+      "path": "openlm-research/open_llama_3b_v2",
+      "operand_id": "c",
+      "weight": 1.0
+    }
+  ]
+}

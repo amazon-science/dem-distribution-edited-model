@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "dem"
+version = "0.1.0"
+description = "DEM: Distribution Edited Model for Training with Mixed Data Distributions"
+authors = ["Dhananjay Ram <radhna@amazon.com>", "Aditya Rawal <adirawal>", "Momchil Hardalov <momchilh>", "Nikolaos Pappas <nppappa@amazon.com>",  "Sheng Zha <zhasheng@amazon.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+torch = "^2.5.1"
+transformers = "^4.48.0"
+typer = "^0.7.0"
+safetensors = "^0.5.2"
+huggingface-hub = "^0.27.1"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+autoflake = "^2.1.1"
+black = "^23.3.0"
+pytest = {version = "^7.3.1", extras = ["cov"]}
+
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+profile = "black"
+known_first_party = []
+default_section = "THIRDPARTY"
+
+[tool.autoflake]
+# return error code if changes are needed
+check = false
+# make changes to files instead of printing diffs
+in-place = true
+# drill down directories recursively
+recursive = true
+# expand wildcard star imports with undefined names; this only triggers if there is only one star import in
+# the file; this is skipped if there are any uses of `__all__` or `del` in the file
+expand-star-imports = true
+# remove all unused imports (not just those from the standard library)
+remove-all-unused-imports = true
+# exclude __init__.py when removing unused imports
+ignore-init-module-imports = true
+# remove all duplicate keys in objects
+remove-duplicate-keys = true
+# remove unused variables
+remove-unused-variables = true
+
+[tool.mypy]
+# See https://mypy.readthedocs.io/en/latest/config_file.html for more mypy options.
+
+# Enables the type-checker on the interior of functions without type annotations.
+check_untyped_defs = true
+
+# Displaying specific error codes makes it easier to silence specific errors
+# See also https://mypy.readthedocs.io/en/latest/error_codes.html
+show_error_codes = true
+
+# Show source code snippets and location markers in error messages
+pretty = true
+
+# Suppresses errors about packages which do not implement type-hint sharing.
+# See also https://mypy.readthedocs.io/en/latest/running_mypy.html#missing-imports.
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
